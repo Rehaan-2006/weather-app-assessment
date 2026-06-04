@@ -20,21 +20,21 @@ A robust, production-ready RESTful API built with **FastAPI** and **PostgreSQL**
 ## Local Setup Instructions
 
 ### 1. Clone the repository
-\`\`\`bash
+```bash
 git clone https://github.com/YOUR_USERNAME/weather-app-assessment.git
 cd weather-app-assessment
-\`\`\`
+```
 
 ### 2. Set up the Virtual Environment & Dependencies
-\`\`\`bash
+```bash
 python3 -m venv .venv
 source .venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
-\`\`\`
+```
 
 ### 3. Environment Variables
 Create a `.env` file in the root directory. You can duplicate the provided `.env.example` file.
-\`\`\`env
+```env
 # Database Connection (Local or Cloud PostgreSQL)
 DATABASE_URL=postgresql://user:password@localhost:5432/weather_db
 
@@ -43,13 +43,13 @@ YOUTUBE_API_KEY=your_google_cloud_api_key_here
 
 ENVIRONMENT=development
 PORT=8000
-\`\`\`
+```
 
 ### 4. Run the Application
 Start the uvicorn server. The database tables will generate automatically on boot.
-\`\`\`bash
+```bash
 uvicorn app.main:app --reload
-\`\`\`
+```
 
 ### 5. View Documentation & Test
 Once the server is running, navigate to the auto-generated Swagger UI to test all endpoints:
