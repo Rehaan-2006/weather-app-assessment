@@ -9,6 +9,8 @@ A robust, production-ready RESTful API built with **FastAPI** and **PostgreSQL**
 * **API Mashups (Phase 4):** Dynamically enriches location queries with YouTube travel videos (YouTube Data API v3) and OpenStreetMap URLs.
 * **Data Export:** Native functionality to export database rows into a downloadable `.csv` format.
 
+**Note on Weather API Limitations:** This application utilizes the Open-Meteo Archive API to guarantee free, keyless historical data retrieval for reviewers. As an archive API, it only accepts date ranges in the past. Querying today's date or future dates will result in a 502 Bad Gateway response from the upstream provider.
+
 ## Tech Stack
 * **Framework:** FastAPI (Python)
 * **Database:** PostgreSQL (via SQLAlchemy ORM)
