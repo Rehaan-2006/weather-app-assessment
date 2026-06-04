@@ -1,4 +1,6 @@
-from fastapi import FastAPI, Depends, HTTPException, Response
+from fastapi import FastAPI, Depends, HTTPException, Request, Response
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 import io
 import csv
@@ -10,6 +12,21 @@ from app import schemas, crud, services
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Weather Intelligence API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods (GET, POST, PUT, DELETE)
+    allow_headers=["*"],  # Allows all headers
+)
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={"message": "An unexpected internal server error occurred. Please try again later."},
+    )
 
 @app.post("/api/weather", response_model=schemas.WeatherResponse, status_code=201)
 async def create_weather(payload: schemas.WeatherCreate, db: Session = Depends(get_db)):
