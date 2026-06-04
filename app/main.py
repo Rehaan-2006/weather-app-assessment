@@ -36,7 +36,7 @@ def root():
     return {
         "author": "Shaikh Mohd Rehaan",
         "about_pm_accelerator": (
-            "Product Manager Accelerator"
+            "Product Manager Accelerator(PMA) "
             "From entry-level to VP of Product, we support PM professionals through every stage of their careers."
             "Through mentorship, real-world projects, and a strong community, PMA helps "
             "members land jobs at leading tech companies. Learn more at "
