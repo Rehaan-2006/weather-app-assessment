@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 import io
 import csv
+import xml.etree.ElementTree as ET
 
 from app.config import settings 
 from app.database import Base, engine, get_db
